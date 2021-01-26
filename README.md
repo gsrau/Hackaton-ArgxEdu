@@ -9,6 +9,10 @@ Aprender es el dispositivo nacional de evaluación de los aprendizajes de los es
 ## Objetivos
 El Notebook realizado consiste en un modelo de Machine Learning que predice a través de un target binario el desempeño -bueno o malo- de los alumnos en las pruebas Aprender en la materia Matemática.
 
+## Consideraciones sobre el pre procesamiento de datos y el análisis exploratorio realizado
+En principio, durante el proceso de preprocesamiento de datos, se realizó una limpieza del dataset eliminando filas y columnas con muchos valores nulos. En este marco, una de las principales decisiones sobre la eliminación de nulos que se tomó, fue dejar de lado los datos de 2013 para simplificar la limpieza, tomando en consideración que los datos de las pruebas Aprender previas al año 2016 se tomaban mediante técnicas de muestreo y a partir de dicho año se comenzó a hacerlo mediante censos (independientemente de que la población de alumnos que participó no llega a ser del 100%).
+En cuanto los dataset, se utilizó el csv de alumnos concatenado con el de escuelas.
+
 ## Consideraciones sobre los modelos de clasificación utilizados
 Se decidió seguir el camino de una predicción binaria del desempeño del alumno en matemática. La variable target se construyó con las siguientes categorías: buen desempeño en matemática (unificando el desempeño avanzado y el desempeño satisfactorio) cuyo valor es 1, y mal desempeño en matemática (unificando el desempeño básico y por debajo del básico), si bien puede ser arbitrario este agrupamiento, se tomó esta decisión para simplificar el análisis y el modelo.
 Se eligieron los modelos de Random Forest y XGBoost. Se entrenó el Random Forest primero con 100 árboles y luego con 1000 para mejorar su accuracy. En ambos casos dió un accuracy de 0,67 a lo que entendemos que su precisión es deficiente, y esto se puede observar en la matriz de confusión donde vemos que el modelo se equivoca en muchos casos con las predicciones del desempeño.
